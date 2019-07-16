@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ShieldWeb.Models.cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Clientes cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar novo Cliente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.historico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.area_atuacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.historico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.area_atuacao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Ver detalhes", "Details", new { id = item.id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,34 @@
+﻿@model ShieldWeb.Models.projeto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes do projeto</h2>
+
+<div>
+    <h4>Projeto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

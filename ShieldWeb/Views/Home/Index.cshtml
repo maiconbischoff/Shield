@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-xs-4">
+            <img src="/images/logo.jpg" height="200" title="Logo" alt="Logo">
+        </div>
+        <div class="col-xs-8">
+            <h1 style="font-size: 35px; padding-top: 40px;">BEM VINDO A SHIELD!</h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Acesse suas tarefas:</h2>
+        <p>@Html.ActionLink("Clicando aqui", "Tasks", "tarefas")</p>
+    </div>
+</div>

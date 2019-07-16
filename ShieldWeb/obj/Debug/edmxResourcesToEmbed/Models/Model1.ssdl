@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SHIELDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="historico" Type="text" Nullable="false" />
+    <Property Name="area_atuacao" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="comentario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="text" />
+    <Property Name="notificar" Type="bit" Nullable="false" />
+    <Property Name="usuarios_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="tarefas_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuarios_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="quantidade_horas" Type="real" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="tarefas_id" Type="int" Nullable="false" />
+    <Property Name="comentarios_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="clientes_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tarefa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projetos_id" Type="int" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipo_solicitacao" Type="text" Nullable="false" />
+    <Property Name="briefing" Type="text" />
+    <Property Name="label" Type="varchar" MaxLength="40" />
+    <Property Name="historico_tarefas" Type="varchar" MaxLength="60" />
+    <Property Name="avaliacao_criticidade" Type="bit" />
+    <Property Name="nivel_criticidade" Type="int" />
+  </EntityType>
+  <Association Name="comentarios_fk0">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="comentario" Type="Self.comentario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="comentario">
+        <PropertyRef Name="usuarios_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="comentarios_fk1">
+    <End Role="tarefa" Type="Self.tarefa" Multiplicity="1" />
+    <End Role="comentario" Type="Self.comentario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comentario">
+        <PropertyRef Name="tarefas_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="horas_fk0">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="hora" Type="Self.hora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="hora">
+        <PropertyRef Name="usuarios_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="horas_fk1">
+    <End Role="tarefa" Type="Self.tarefa" Multiplicity="1" />
+    <End Role="hora" Type="Self.hora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hora">
+        <PropertyRef Name="tarefas_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="horas_fk2">
+    <End Role="comentario" Type="Self.comentario" Multiplicity="1" />
+    <End Role="hora" Type="Self.hora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comentario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hora">
+        <PropertyRef Name="comentarios_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="projetos_fk0">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+    <End Role="projeto" Type="Self.projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto">
+        <PropertyRef Name="clientes_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tarefas_fk0">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="1" />
+    <End Role="tarefa" Type="Self.tarefa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa">
+        <PropertyRef Name="projetos_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SHIELDModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comentario" EntityType="Self.comentario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hora" EntityType="Self.hora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projeto" EntityType="Self.projeto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarefa" EntityType="Self.tarefa" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="comentarios_fk0" Association="Self.comentarios_fk0">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="comentario" EntitySet="comentario" />
+    </AssociationSet>
+    <AssociationSet Name="comentarios_fk1" Association="Self.comentarios_fk1">
+      <End Role="tarefa" EntitySet="tarefa" />
+      <End Role="comentario" EntitySet="comentario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="horas_fk0" Association="Self.horas_fk0">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="hora" EntitySet="hora" />
+    </AssociationSet>
+    <AssociationSet Name="horas_fk1" Association="Self.horas_fk1">
+      <End Role="tarefa" EntitySet="tarefa" />
+      <End Role="hora" EntitySet="hora" />
+    </AssociationSet>
+    <AssociationSet Name="horas_fk2" Association="Self.horas_fk2">
+      <End Role="comentario" EntitySet="comentario" />
+      <End Role="hora" EntitySet="hora" />
+    </AssociationSet>
+    <AssociationSet Name="projetos_fk0" Association="Self.projetos_fk0">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="projeto" EntitySet="projeto" />
+    </AssociationSet>
+    <AssociationSet Name="tarefas_fk0" Association="Self.tarefas_fk0">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="tarefa" EntitySet="tarefa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

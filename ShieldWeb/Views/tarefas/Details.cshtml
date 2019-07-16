@@ -1,0 +1,82 @@
+﻿@model ShieldWeb.Models.tarefa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes da tarefa</h2>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_solicitacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_solicitacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.briefing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.briefing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.historico_tarefas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.historico_tarefas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avaliacao_criticidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avaliacao_criticidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivel_criticidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivel_criticidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projeto.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projeto.nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

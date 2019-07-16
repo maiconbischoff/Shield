@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66b51c0ebef9488197bc55143060015e" Name="Diagram1">
+        <EntityTypeShape EntityType="SHIELDModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.AspNetUsers" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.cliente" Width="1.5" PointX="1.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.comentario" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.hora" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.projeto" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIELDModel.tarefa" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SHIELDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.comentarios_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.horas_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.projetos_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.comentarios_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.horas_fk2" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.horas_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.tarefas_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIELDModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

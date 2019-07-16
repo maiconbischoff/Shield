@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ShieldWeb.Models.projeto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Projetos cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo projeto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Ver detalhes", "Details", new { id = item.id }) |
+            @Html.ActionLink("Excuir", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

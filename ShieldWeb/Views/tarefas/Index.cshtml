@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ShieldWeb.Models.tarefa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tarefas cadastradas</h2>
+
+<p>
+    @Html.ActionLink("Criar nova tarefa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo)
+        </th>
+        <th>
+            Tipo <br /> solicitação
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.briefing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.label)
+        </th>
+        <th>
+            Hist.
+        </th>
+        <th>
+            Avaliação <br> Criticidade
+        </th>
+        <th>
+            Crit.
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projeto.nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_solicitacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.briefing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.historico_tarefas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.avaliacao_criticidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nivel_criticidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projeto.nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Ver detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

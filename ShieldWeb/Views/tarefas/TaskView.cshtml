@@ -1,0 +1,82 @@
+﻿@model ShieldWeb.Models.tarefa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Você está na tarefa:</h2>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Título da tarefa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            Tipo de solicitação:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_solicitacao)
+        </dd>
+
+        <dt>
+            Briefing:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.briefing)
+        </dd>
+
+        <dt>
+            Label
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.label)
+        </dd>
+
+        <dt>
+            Histórico de tarefas:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.historico_tarefas)
+        </dd>
+
+        <dt>
+            Criticidade:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avaliacao_criticidade)
+        </dd>
+
+        <dt>
+            Nível de criticidade:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivel_criticidade)
+        </dd>
+
+        <dt>
+            Projeto:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projeto.nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

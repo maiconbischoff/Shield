@@ -1,0 +1,41 @@
+﻿@model ShieldWeb.Models.projeto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Excluir projeto</h2>
+
+<h3>Tem certeza que deseja excluir esse projeto?</h3>
+<div>
+    <h4>Projeto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.nome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

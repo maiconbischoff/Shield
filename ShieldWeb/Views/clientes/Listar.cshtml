@@ -1,0 +1,55 @@
+﻿@*@model IEnumerable<ShieldWeb.Models.cliente>*@
+@model X.PagedList.IPagedList<ShieldWeb.Models.cliente>
+@using X.PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Clientes cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar novo Cliente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Nome
+        </th>
+        <th>
+            Histórico
+        </th>
+        <th>
+            Área de atuação
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.historico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area_atuacao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Ver detalhes", "Details", new { id = item.id }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+</table>
+<div class="row">
+    <div class="col-xs-9 col-xs-offset-3">
+        Página @Model.PageNumber de @Model.PageCount
+        @Html.PagedListPager(Model, pagina => Url.Action("Listar", new { pagina = pagina }));
+
+        @* @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))*@
+    </div>
+</div>

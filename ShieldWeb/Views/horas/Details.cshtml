@@ -1,0 +1,58 @@
+﻿@model ShieldWeb.Models.hora
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Dados do tempo cadastrado</h2>
+
+<div>
+    <h4>Tempo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidade_horas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantidade_horas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentario.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarefa.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarefa.titulo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
